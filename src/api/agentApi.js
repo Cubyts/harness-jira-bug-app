@@ -29,7 +29,8 @@ export async function createAgent(formValues, existingAgents) {
     name: formValues.name,
     owner: formValues.owner,
     status: formValues.status || 'Offline',
-    environment: formValues.environment
+    environment: formValues.environment,
+    description: formValues.description
   };
 }
 

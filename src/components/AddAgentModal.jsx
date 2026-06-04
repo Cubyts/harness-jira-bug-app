@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 const emptyForm = {
   name: '',
   owner: '',
-  status: 'Offline'
+  status: 'Offline',
+  description: ''
 };
 
 export default function AddAgentModal({ existingAgents, onAddAgent, onClose }) {
@@ -61,6 +62,16 @@ export default function AddAgentModal({ existingAgents, onAddAgent, onClose }) {
               value={formValues.owner}
               onChange={(event) => updateField('owner', event.target.value)}
               placeholder="Platform"
+            />
+          </label>
+
+          <label>
+            Description
+            <textarea
+              value={formValues.description}
+              onChange={(event) => updateField('description', event.target.value)}
+              placeholder="Describe what this agent is used for"
+              rows="3"
             />
           </label>
 
