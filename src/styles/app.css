@@ -6,6 +6,9 @@
   --color-border: #d9dee8;
   --color-primary: #0b6bcb;
   --color-danger: #b42318;
+  --color-secondary-button: #eef2f6;
+  --color-danger-button: #fee4e2;
+  --color-input: #ffffff;
   --font-family: Inter, Arial, sans-serif;
   --font-size-title: 20px;
   --font-size-body: 14px;
@@ -31,6 +34,21 @@ select {
 .page-shell {
   min-height: 100vh;
   padding: 40px 48px;
+  background: var(--color-page);
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.theme-dark {
+  --color-page: #101828;
+  --color-surface: #182230;
+  --color-text: #f2f4f7;
+  --color-muted: #98a2b3;
+  --color-border: #344054;
+  --color-primary: #2e90fa;
+  --color-danger: #f97066;
+  --color-secondary-button: #344054;
+  --color-danger-button: #4a1d1a;
+  --color-input: #101828;
 }
 
 .dashboard-header {
@@ -39,6 +57,63 @@ select {
   justify-content: space-between;
   max-width: 1080px;
   margin: 0 auto 24px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-muted);
+  font-size: var(--font-size-body);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.theme-switch input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.switch-track {
+  width: 42px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-secondary-button);
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.switch-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  box-shadow: 0 1px 3px rgb(16 24 40 / 24%);
+  transition: transform 160ms ease;
+}
+
+.theme-switch input:checked + .switch-track {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.theme-switch input:checked + .switch-track .switch-thumb {
+  transform: translateX(18px);
+}
+
+.theme-switch input:focus-visible + .switch-track {
+  outline: 3px solid rgb(46 144 250 / 35%);
+  outline-offset: 2px;
 }
 
 .eyebrow {
@@ -134,13 +209,13 @@ h1 {
 }
 
 .secondary-button {
-  background: #eef2f6;
+  background: var(--color-secondary-button);
   color: var(--color-text);
   padding: 10px 16px;
 }
 
 .danger-button {
-  background: #fee4e2;
+  background: var(--color-danger-button);
   color: var(--color-danger);
   padding: 8px 12px;
 }
@@ -148,7 +223,7 @@ h1 {
 .icon-button {
   width: 32px;
   height: 32px;
-  background: #eef2f6;
+  background: var(--color-secondary-button);
   color: var(--color-text);
 }
 
@@ -209,6 +284,7 @@ h1 {
   width: 100%;
   border: 1px solid var(--color-border);
   border-radius: 6px;
+  background: var(--color-input);
   color: var(--color-text);
   padding: 10px 12px;
 }
@@ -226,6 +302,11 @@ h1 {
   .dashboard-header {
     align-items: flex-start;
     gap: 16px;
+  }
+
+  .header-actions {
+    align-items: flex-end;
+    flex-direction: column;
   }
 
   .stats-grid {

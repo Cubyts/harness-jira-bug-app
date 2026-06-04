@@ -14,6 +14,7 @@ export default function App() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [deleteError, setDeleteError] = useState('');
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -61,15 +62,28 @@ export default function App() {
   }
 
   return (
-    <main className="page-shell">
+    <main className={`page-shell ${isDarkTheme ? 'theme-dark' : ''}`}>
       <section className="dashboard-header">
         <div>
           <p className="eyebrow">Harness</p>
           <h1>Agent Dashboard</h1>
         </div>
-        <button className="primary-button" onClick={() => setIsAddModalOpen(true)}>
-          Add Agent
-        </button>
+        <div className="header-actions">
+          <label className="theme-switch">
+            <input
+              type="checkbox"
+              checked={isDarkTheme}
+              onChange={(event) => setIsDarkTheme(event.target.checked)}
+            />
+            <span className="switch-track" aria-hidden="true">
+              <span className="switch-thumb" />
+            </span>
+            <span>Dark theme</span>
+          </label>
+          <button className="primary-button" onClick={() => setIsAddModalOpen(true)}>
+            Add Agent
+          </button>
+        </div>
       </section>
 
       <section className="stats-grid" aria-label="Agent counts">
