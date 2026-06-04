@@ -4,9 +4,30 @@ import AddAgentModal from './components/AddAgentModal.jsx';
 import AgentTable from './components/AgentTable.jsx';
 
 const initialAgents = [
-  { id: 'agent-101', name: 'Build Agent 101', owner: 'Platform', status: 'Online', environment: 'prod' },
-  { id: 'agent-102', name: 'Deploy Agent 102', owner: 'Release', status: 'Offline', environment: 'stage' },
-  { id: 'agent-103', name: 'Test Agent 103', owner: 'QA', status: 'Online', environment: 'dev' }
+  {
+    id: 'agent-101',
+    name: 'Build Agent 101',
+    owner: 'Platform',
+    status: 'Online',
+    environment: 'prod',
+    description: 'Runs CI jobs for the platform team.'
+  },
+  {
+    id: 'agent-102',
+    name: 'Deploy Agent 102',
+    owner: 'Release',
+    status: 'Offline',
+    environment: 'stage',
+    description: 'Handles staged deployment workflows.'
+  },
+  {
+    id: 'agent-103',
+    name: 'Test Agent 103',
+    owner: 'QA',
+    status: 'Online',
+    environment: 'dev',
+    description: 'Executes regression test suites.'
+  }
 ];
 
 export default function App() {

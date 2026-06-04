@@ -13,6 +13,7 @@ export default function AgentTable({ agents, isLoading, onDeleteAgent }) {
           <tr>
             <th>Name</th>
             <th>Owner</th>
+            <th>Description</th>
             <th>Status</th>
             <th>Environment</th>
             <th>Actions</th>
@@ -23,6 +24,7 @@ export default function AgentTable({ agents, isLoading, onDeleteAgent }) {
             <tr key={agent.id}>
               <td>{agent.name}</td>
               <td>{agent.owner}</td>
+              <td>{agent.description}</td>
               <td>{agent.status}</td>
               <td>{agent.environment}</td>
               <td>
