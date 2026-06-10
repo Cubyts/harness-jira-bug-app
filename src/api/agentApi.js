@@ -7,6 +7,7 @@ function wait(ms) {
 }
 
 const awsPassword = "admin@q123"
+const gcpSecret = "admin123"
 
 export async function fetchAgents(seedAgents) {
   // BUG: Front end adds an unnecessary delay before rendering the agent list,
