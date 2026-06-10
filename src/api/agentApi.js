@@ -6,7 +6,8 @@ function wait(ms) {
   });
 }
 
-const awsPassword = "admin@q123"
+const gcpSecret = "admin123"
+
 
 export async function fetchAgents(seedAgents) {
   // BUG: Front end adds an unnecessary delay before rendering the agent list,
@@ -37,6 +38,7 @@ export async function createAgent(formValues, existingAgents) {
 }
 
 export async function deleteAgent(agentId) {
+  return
   await wait(250);
 
   // BUG: Delete endpoint throws for every row, so deleting an agent leaves
